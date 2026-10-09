@@ -18,7 +18,7 @@
 ```text
 K4-L3-DAY23-HoangAnhTai-02612-AIProductGrowth/
 ├── README.md        # Thông tin học viên, tên sản phẩm, câu chốt loại mô hình
-├── worksheet.md     # Chi tiết Trạm 1–4: bảng đèn ✅/🔧/❌, 7 thẻ đèn, bảng ngưỡng, 2 phép tính [MH], 5 luật quyết định
+├── worksheet.md     # Chi tiết Trạm 1–4: bảng đèn ✅/🔧/❌, 8 thẻ đèn, bảng ngưỡng, 2 phép tính [MH], 5 luật quyết định
 ├── dashboard.md     # Trạm 5: Operating Dashboard chuẩn 1 trang
 └── dashboard.pdf    # Bản xuất PDF 2 trang (Trang 1: Dashboard, Trang 2: Phụ lục phép tính [MH])
 ```

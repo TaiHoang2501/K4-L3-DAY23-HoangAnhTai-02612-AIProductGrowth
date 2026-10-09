@@ -6,23 +6,35 @@ Họ tên: Hoàng Anh Tài · MSSV: 2A202602612 · Ngày làm: 09/10/2026
 
 ## Trạm 1 — Loại mô hình
 
-**Câu chốt loại:** Chúng tôi là **B2B** vì tiền đến từ hợp đồng bản quyền dịch vụ/phần mềm của Chủ đầu tư Vinhomes và các Sàn phân phối BĐS F1, người dùng là đội ngũ điều phối giỏ hàng và môi giới nội bộ thuộc hệ thống phân phối, và chúng tôi tích hợp giải pháp qua API/VPC bảo mật kết nối trực tiếp với Cơ sở dữ liệu (CSDL) giỏ hàng của họ.
+### 1. Trả lời 3 câu hỏi xác định loại mô hình (theo thực tế hôm nay)
 
-**Bảng đèn §3 của B2B** (rà soát toàn bộ các đèn từ HANDBOOK §3.2):
+1. **Ai trả tiền cho bạn?**
+   - **Doanh nghiệp (B2B):** Tiền đến từ hợp đồng thuê bao phần mềm/bản quyền dịch vụ B2B do các Chủ đầu tư BĐS (Vinhomes) và các Sàn phân phối F1 thanh toán hàng năm (ACV), không thu tiền từ khách mua nhà cá nhân.
+2. **Ai dùng sản phẩm?**
+   - **Chính tổ chức trả tiền (B2B):** Người trực tiếp thao tác và hưởng lợi là đội ngũ quản lý điều phối giỏ hàng và chuyên viên môi giới nội bộ thuộc hệ thống phân phối/sàn F1 để quản lý lịch, giỏ căn và phân bổ lịch xem nhà.
+3. **Nếu có bên trung gian: bạn có chạm được người dùng cuối không?**
+   - **Không chạm end-user:** Khách mua nhà cuối cùng chỉ làm việc với môi giới người thật ngoài đời. BookingBot hoạt động như một hệ thống hỗ trợ nghiệp vụ chuyên sâu phía sau (Back-office Agent), kết nối trực tiếp vào CSDL giỏ hàng nội bộ qua VPC/API của doanh nghiệp. Do đó, sản phẩm là **B2B** thuần túy, không phải B2B2C.
 
-| Đèn | ✅ / 🔧 / ❌ | Số nằm ở đâu / cần gì để đo |
-|---|---|---|
-| **Time-to-first-value (TTFV)** | 🔧 | Cần log ngày bàn giao kết nối CSDL và log bản ghi ca xem nhà thành công đầu tiên (`VH-YYYY-XXXXX`) trên hệ thống |
-| **Pipeline coverage** | ✅ | Nằm trên hệ thống CRM bán hàng B2B (tổng deal giai đoạn Qualified ÷ chỉ tiêu quý) |
-| **% deal chết ở khâu security/procurement** | 🔧 | Cần biên bản ghi nhận nguyên nhân dừng deal từ bộ phận Pháp chế/IT Security của Chủ đầu tư |
-| **POC → paid** | 🔧 | Cần theo dõi tỷ lệ ký hợp đồng chính thức sau 30 ngày thử nghiệm tại phân khu pilot |
-| **Sales cycle (tuần)** | ✅ | Đo từ ngày tạo cơ hội Qualified trên CRM đến ngày ký hợp đồng |
-| **Usage depth trong tài khoản** | 🔧 | Cần thiết lập sự kiện Product Analytics đo thao tác duyệt lịch/cập nhật căn hàng tuần của môi giới nội bộ |
-| **Chi phí triển khai ÷ ACV** | 🔧 | Cần bảng chấm công giờ làm kỹ thuật (Timesheet Dev) tích hợp CSDL giỏ hàng đối chiếu với giá trị hợp đồng năm |
-| **Tập trung doanh thu** | ✅ | Bảng theo dõi doanh thu kế toán (doanh thu từ phân khu/sàn lớn nhất ÷ tổng doanh thu) |
-| **Chi phí Inference AI / lượt khớp lịch** | ✅ | Dashboard giám sát API logging (Langfuse / Azure OpenAI Token usage) chia cho tổng lượt tạo Booking Request |
-| **NRR (Net Revenue Retention)** | ❌ | Chưa đo được vì sản phẩm mới ở giai đoạn đầu, cần tối thiểu 12 tháng vận hành hợp đồng để có số gia hạn/mở rộng |
-| **Gross Margin** | 🔧 | Cần bảng đối soát chi phí hạ tầng cloud + API LLM đối chiếu với doanh thu định kỳ hàng quý |
+### 2. Câu chốt loại
+
+> **Chúng tôi là B2B** vì tiền đến từ hợp đồng bản quyền dịch vụ/phần mềm của **Chủ đầu tư Vinhomes và các Sàn phân phối BĐS F1**, người dùng thật là **đội ngũ điều phối giỏ hàng và môi giới nội bộ** thuộc hệ thống phân phối, và chúng tôi tích hợp giải pháp qua **API/VPC bảo mật kết nối trực tiếp với Cơ sở dữ liệu (CSDL) giỏ hàng** của doanh nghiệp (không trực tiếp tương tác với người mua nhà cuối cùng).
+
+### 3. Rà soát bảng đèn §3 B2B (từ HANDBOOK §3.2)
+
+| Đèn | Tầng | ✅ / 🔧 / ❌ | Số nằm ở đâu / cần gì để đo |
+|---|---|---|---|
+| **Time-to-first-value (TTFV)** ⭐ | Leading | 🔧 | Cần log ngày bàn giao kết nối CSDL và log bản ghi ca xem nhà thành công đầu tiên (`VH-YYYY-XXXXX`) trên hệ thống |
+| **Pipeline coverage** | Leading | ✅ | Nằm trên hệ thống CRM bán hàng B2B (tổng deal giai đoạn Qualified ÷ chỉ tiêu quý) |
+| **% deal chết ở khâu security/procurement** | Leading | 🔧 | Cần biên bản ghi nhận nguyên nhân dừng deal từ bộ phận Pháp chế/IT Security của Chủ đầu tư |
+| **POC → paid** | Operating | 🔧 | Cần theo dõi tỷ lệ ký hợp đồng chính thức sau 30 ngày thử nghiệm tại phân khu pilot |
+| **Sales cycle (tuần)** | Operating | ✅ | Đo từ ngày tạo cơ hội Qualified trên CRM đến ngày ký hợp đồng thành công |
+| **Usage depth trong tài khoản** | Operating | 🔧 | Cần thiết lập sự kiện Product Analytics đo thao tác duyệt lịch/cập nhật căn hàng tuần của môi giới nội bộ |
+| **Chi phí triển khai ÷ ACV** | Operating | 🔧 | Cần bảng chấm công giờ làm kỹ thuật (Timesheet Dev) tích hợp CSDL giỏ hàng đối chiếu với giá trị hợp đồng năm |
+| **Tập trung doanh thu** | Operating | ✅ | Bảng theo dõi doanh thu kế toán (doanh thu từ phân khu/sàn lớn nhất ÷ tổng doanh thu) |
+| **Chi phí Inference AI / lượt khớp lịch (Cost/Job)** | Leading | ✅ | Dashboard giám sát API logging (Langfuse / Azure OpenAI Token usage) chia cho tổng lượt tạo Booking Request |
+| **NRR (Net Revenue Retention)** | Lagging | ❌ | Chưa đo được vì sản phẩm mới ở giai đoạn đầu, cần tối thiểu 12 tháng vận hành hợp đồng để có số gia hạn/mở rộng |
+| **Gross Margin** | Lagging | 🔧 | Cần bảng đối soát chi phí hạ tầng cloud + API LLM đối chiếu với doanh thu định kỳ hàng quý |
+| **CAC payback** | Lagging | ❌ | Chưa đo được chu kỳ hoàn vốn thực tế; hiện đang dùng giả định mô hình tài chính (< 12 tháng), cần ít nhất 2 quý dữ liệu chi phí bán hàng và dòng tiền thu hồi thực tế |
 
 ---
 
@@ -39,6 +51,7 @@ Họ tên: Hoàng Anh Tài · MSSV: 2A202602612 · Ngày làm: 09/10/2026
 | 5 | **O** | **Chi phí triển khai & tích hợp CSDL ÷ ACV** | Đếm chi phí nhân sự kỹ thuật Onboarding (giờ công dev mapping CSDL giỏ hàng) trên Giá trị hợp đồng năm (ACV). **Không** đếm chi phí hoa hồng bán hàng (Sales Commission). | `(Tổng giờ công kỹ thuật Onboarding × 250.000đ + chi phí hạ tầng sandbox) ÷ ACV` | Mỗi hợp đồng hoàn tất nghiệm thu · Tech Lead | Gross Margin & CAC payback (tầng G) |
 | 6 | **O** | **Mức độ sử dụng sâu (Usage Depth)** | Đếm % nhân sự môi giới/điều phối viên được cấp tài khoản có thao tác duyệt hoặc cập nhật slot xem nhà $\ge 1$ lần/tuần. **Không** đếm hành vi đăng nhập chỉ để xem lướt rồi thoát. | `(Số user nội bộ thao tác nghiệp vụ hàng tuần) ÷ (Tổng số user được cấp license)` | Hàng tuần · Product Manager | NRR & Churn năm đầu (tầng G) |
 | 7 | **G** | **Gross Margin** | Lãi gộp sau khi trừ toàn bộ chi phí server, bản quyền phần mềm và chi phí token inference AI. **Không** trừ chi phí bán hàng và marketing (CAC). | `(Doanh thu dịch vụ − COGS kỹ thuật trực tiếp) ÷ Doanh thu dịch vụ` | Hàng quý · Kế toán trưởng | Runway & Định giá doanh nghiệp |
+| 8 | **G** | **Net Revenue Retention (NRR)** | Đếm % doanh thu định kỳ (ARR) giữ lại và mở rộng từ các sàn/phân khu cũ sau 12 tháng. **Không** đếm doanh thu phát sinh từ khách hàng mới ký lần đầu trong kỳ (New Logos). | `(ARR từ tập khách hàng cũ tại thời điểm T+12) ÷ (ARR từ chính tập khách hàng đó tại thời điểm T) × 100%` | Hàng quý / Hàng năm · Finance Lead & Kế toán trưởng | Tốc độ tích lũy vốn & Định giá doanh nghiệp |
 
 **Đèn chi phí AI là đèn số:** **3** (`Chi phí Inference AI trên mỗi yêu cầu khớp lịch - Cost/Job AI Matching`).
 
@@ -48,13 +61,14 @@ Họ tên: Hoàng Anh Tài · MSSV: 2A202602612 · Ngày làm: 09/10/2026
 
 | # | Đèn | 🟢 | 🟡 | 🔴 | Nguồn [BM]/[MH]/[TB] | Lý do (1 câu) · ngày kiểm tra nếu [BM] |
 |---|---|---|---|---|---|---|
-| 1 | **Time-to-first-value (TTFV)** | < 14 ngày | 14–30 ngày | > 30 ngày | **[TB]** | Baseline tự đặt dựa trên chu kỳ mở bán căn hộ; quá 30 ngày đối tác sẽ mất kiên nhẫn và bỏ rơi hệ thống pilot. |
+| 1 | **Time-to-first-value (TTFV)** | < 14 ngày | 14–30 ngày | > 30 ngày | **[TB]** | Chưa có chuẩn ngành BĐS; đang đo trên 2 sàn pilot để lấy baseline chính thức trước ngày 15/11/2026; mốc > 30 ngày là ngưỡng đỏ vì chu kỳ mở bán không cho phép đối tác chờ lâu hơn. |
 | 2 | **% Deal vượt qua thẩm định Security CSDL** | $\ge 80\%$ | 60–80% | < 60% | **[BM]** | Benchmark ngành B2B AI tỷ lệ deal chết ở khâu procurement/security phải < 20% (ICONIQ State of AI 2026, kiểm tra ngày 27/08/2026). |
-| 3 | **Chi phí Inference AI / Booking Request (Cost/Job)** | $\le 8.500$đ | 8.500–15.000đ | > 15.000đ | **[MH] 1** | Suy từ Gross Margin mục tiêu $\ge 60\%$ và doanh thu phân bổ trên mỗi booking quota theo gói ACV chuẩn. |
+| 3 | **Chi phí Inference AI / Booking Request (Cost/Job)** | $\le 8.500$đ | 8.500–15.000đ | > 15.000đ | **[MH] 1** | Suy từ Gross Margin mục tiêu $\ge 60\%$ và doanh thu phân bổ trên mỗi booking quota theo gói ACV chuẩn (xem chi tiết phép tính ở Phụ lục [MH] 1). |
 | 4 | **POC → paid** | $\ge 50\%$ | 35–50% | < 35% | **[BM]** | Trung vị chuyển đổi POC $\rightarrow$ Paid của phần mềm AI B2B đạt ~50% năm 2026 (ICONIQ State of GTM 2026, kiểm tra ngày 27/08/2026). |
-| 5 | **Chi phí triển khai & tích hợp CSDL ÷ ACV** | < 15% | 15–25% | > 25% | **[MH] 2** | Suy từ mô hình chi phí năm đầu: chi phí Onboarding vượt 25% ACV sẽ biến công ty sản phẩm thành đơn vị gia công dịch vụ và ăn mòn toàn bộ biên lãi. |
-| 6 | **Usage Depth** | $\ge 60\%$ | 30–60% | < 30% | **[TB]** | Tự đặt dựa trên quy ước vận hành phần mềm B2B (HANDBOOK §3.2); dưới 30% sau 60 ngày là dấu hiệu báo trước khách hàng sẽ không tái ký. |
-| 7 | **Gross Margin** | $\ge 60\%$ | 50–60% | < 50% | **[BM]** | Trung vị Gross Margin của công ty B2B AI-native đạt ~53% năm 2026 (ICONIQ State of AI 07/2026, kiểm tra ngày 27/08/2026). |
+| 5 | **Chi phí triển khai & tích hợp CSDL ÷ ACV** | < 15% | 15–25% | > 25% | **[MH] 2** | Suy từ mô hình chi phí năm đầu: chi phí Onboarding vượt 25% ACV sẽ biến công ty sản phẩm thành đơn vị gia công dịch vụ và ăn mòn toàn bộ biên lãi (xem Phụ lục [MH] 2). |
+| 6 | **Usage Depth** | $\ge 60\%$ | 30–60% | < 30% | **[TB]** | Chưa có chuẩn riêng cho ngành BĐS; đo 2 chu kỳ vận hành trên sàn F1 để lấy baseline chính thức trước 30/11/2026; ngưỡng < 30% sau 60 ngày là dấu hiệu churn sớm theo HANDBOOK §3.2. |
+| 7 | **Gross Margin** | $\ge 60\%$ | 50–60% | < 50% | **[BM]** | Trung vị Gross Margin của công ty B2B AI-native đạt ~53% năm 2026 (ICONIQ State of AI 07/2026, kiểm tra ngày 27/08/2026); đặt mục tiêu $\ge 60\%$ để có biên an toàn. |
+| 8 | **Net Revenue Retention (NRR)** | $\ge 110\%$ | 100–110% | < 100% | **[BM]** | Trung vị SaaS đạt 101% (Benchmarkit 2025, kiểm tra ngày 27/08/2026); mục tiêu $\ge 110\%$ để mở rộng doanh thu tự nhiên trong tệp khách cũ. |
 
 ---
 
@@ -113,4 +127,4 @@ Kết quả ngưỡng:
 
 4. **NẾU** Chi phí triển khai và tích hợp CSDL > 25% ACV **TRÊN** 2 hợp đồng liên tiếp **THÌ** đóng gói và chuẩn hóa schema dữ liệu thành cổng tự phục vụ (Self-serve Connector), đồng thời ban hành điều khoản phụ phí triển khai (Setup Fee) nếu đối tác yêu cầu cấu trúc CSDL tùy biến phức tạp **KHÔNG THÌ** không được tiếp tục chào bán gói phần mềm với cam kết hỗ trợ tích hợp miễn phí mọi loại cấu trúc dữ liệu.
 
-5. **NẾU** Mức độ sử dụng sâu (Usage Depth) của đội ngũ môi giới/điều phối viên < 30% **SAU** 45 ngày kể từ ngày nghiệm thu go-live **THÌ** cử trực tiếp 1 Chuyên viên Hỗ trợ khách hàng (Customer Success) xuống sàn đào tạo lại nghiệp vụ và tích hợp thông báo nhắc lịch tự động qua tin nhắn Zalo ZNS cho môi giới **KHÔNG THÌ** không được chào bán thêm các phân hệ tính năng nâng cao cho sàn khi tính năng lõi chưa được đưa vào quy trình làm việc hàng ngày.
+5. **NẾU** Mức độ sử dụng sâu (Usage Depth) của đội ngũ môi giới/điều phối viên < 30% **TRONG** 2 tuần liên tiếp (sau mốc 45 ngày kể từ ngày go-live) **THÌ** cử trực tiếp 1 Chuyên viên Hỗ trợ khách hàng (Customer Success) xuống sàn đào tạo lại nghiệp vụ và tích hợp thông báo nhắc lịch tự động qua tin nhắn Zalo ZNS cho môi giới **KHÔNG THÌ** không được chào bán thêm các phân hệ tính năng nâng cao cho sàn khi tính năng lõi chưa được đưa vào quy trình làm việc hàng ngày.
