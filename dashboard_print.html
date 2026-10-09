@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Operating Dashboard — BookingBot AI Agent</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 10mm 12mm 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 8.5pt;
+      line-height: 1.35;
+      color: #1a1a1a;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+    }
+    .page {
+      width: 100%;
+      min-height: 275mm;
+      max-height: 277mm;
+      overflow: hidden;
+      page-break-after: always;
+      position: relative;
+    }
+    .page:last-child {
+      page-break-after: avoid;
+    }
+    h1 {
+      font-size: 13pt;
+      margin: 0 0 3px 0;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.3px;
+      text-transform: uppercase;
+      border-bottom: 2px solid #0284c7;
+      padding-bottom: 3px;
+    }
+    .meta-bar {
+      font-size: 8pt;
+      color: #334155;
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+      background: #f1f5f9;
+      padding: 3px 6px;
+      border-radius: 4px;
+    }
+    .north-star-box {
+      background: #e0f2fe;
+      border-left: 4px solid #0284c7;
+      padding: 4px 8px;
+      margin-bottom: 6px;
+      font-size: 8.5pt;
+      color: #0369a1;
+      font-weight: 600;
+      border-radius: 2px;
+    }
+    .north-star-box span {
+      color: #0f172a;
+      font-weight: 700;
+    }
+    h2 {
+      font-size: 9.5pt;
+      margin: 6px 0 3px 0;
+      font-weight: 700;
+      color: #0f172a;
+      text-transform: uppercase;
+      letter-spacing: -0.2px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 5px;
+      font-size: 8pt;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 3px 5px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #f8fafc;
+      color: #334155;
+      font-weight: 700;
+      font-size: 7.8pt;
+    }
+    .rule-list {
+      margin: 2px 0 5px 0;
+      padding-left: 14px;
+      font-size: 8pt;
+    }
+    .rule-list li {
+      margin-bottom: 3px;
+      line-height: 1.3;
+    }
+    .tag-stop {
+      color: #dc2626;
+      font-weight: 800;
+    }
+    .kw {
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .highlight-red {
+      color: #b91c1c;
+      font-weight: 600;
+    }
+    .footer-section {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      padding: 4px 6px;
+      border-radius: 4px;
+      font-size: 7.8pt;
+      margin-top: 4px;
+    }
+    .footer-section strong {
+      color: #0f172a;
+    }
+    .calc-card {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-left: 4px solid #0284c7;
+      padding: 8px 10px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+    }
+    .calc-card h3 {
+      margin: 0 0 5px 0;
+      font-size: 9.5pt;
+      color: #0369a1;
+      font-weight: 700;
+    }
+    pre {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      padding: 6px 8px;
+      margin: 4px 0 0 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 7.8pt;
+      line-height: 1.35;
+      white-space: pre-wrap;
+      color: #1e293b;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TRANG 1: OPERATING DASHBOARD -->
+  <div class="page">
+    <h1>OPERATING DASHBOARD — BookingBot AI Agent</h1>
+    
+    <div class="meta-bar">
+      <div><strong>Loại mô hình:</strong> B2B (Doanh nghiệp · Chủ đầu tư & Sàn F1 Vinhomes)</div>
+      <div><strong>Học viên:</strong> Hoàng Anh Tài – 2A202602612</div>
+      <div><strong>Cập nhật:</strong> 09/10/2026</div>
+    </div>
+
+    <div class="north-star-box">
+      NORTH STAR METRIC: <span>Time-to-first-value (TTFV)</span> | Hiện tại: <em>Đang triển khai Pilot</em> | Mục tiêu: <span>&lt; 14 ngày</span>
+    </div>
+
+    <h2>1. Đèn báo sớm (Leading — Nhìn hằng ngày / hằng tuần)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 28%;">Đèn</th>
+          <th style="width: 10%;">Hiện</th>
+          <th style="width: 27%;">🟢 / 🟡 / 🔴</th>
+          <th style="width: 13%;">Nguồn</th>
+          <th style="width: 22%;">Báo trước cho</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Time-to-first-value (TTFV)</strong> ⭐</td>
+          <td>Pilot</td>
+          <td>&lt; 14 ngày / 14–30 ngày / &gt; 30 ngày</td>
+          <td>[TB] Baseline</td>
+          <td>POC → paid &amp; NRR</td>
+        </tr>
+        <tr>
+          <td><strong>% Deal duyệt Security CSDL</strong></td>
+          <td>75%</td>
+          <td>≥ 80% / 60–80% / &lt; 60%</td>
+          <td>[BM] 27/08/2026</td>
+          <td>Sales cycle &amp; Win rate</td>
+        </tr>
+        <tr>
+          <td><strong>Chi phí Inference AI / Booking</strong></td>
+          <td>7.200đ</td>
+          <td>≤ 8.500đ / 8.500–15.000đ / &gt; 15.000đ</td>
+          <td>[MH] 1</td>
+          <td>Gross Margin</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>2. Đèn vận hành (Operating — Nhìn hằng tuần / hằng tháng)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 28%;">Đèn</th>
+          <th style="width: 10%;">Hiện</th>
+          <th style="width: 27%;">🟢 / 🟡 / 🔴</th>
+          <th style="width: 13%;">Nguồn</th>
+          <th style="width: 22%;">Báo trước cho</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>POC → paid (Tỷ lệ ký hợp đồng)</strong></td>
+          <td>50%</td>
+          <td>≥ 50% / 35–50% / &lt; 35%</td>
+          <td>[BM] 27/08/2026</td>
+          <td>Doanh thu định kỳ &amp; NRR</td>
+        </tr>
+        <tr>
+          <td><strong>Chi phí triển khai CSDL ÷ ACV</strong></td>
+          <td>18%</td>
+          <td>&lt; 15% / 15–25% / &gt; 25%</td>
+          <td>[MH] 2</td>
+          <td>Gross Margin &amp; CAC payback</td>
+        </tr>
+        <tr>
+          <td><strong>Usage Depth (Môi giới active/tuần)</strong></td>
+          <td>42%</td>
+          <td>≥ 60% / 30–60% / &lt; 30%</td>
+          <td>[TB] Baseline</td>
+          <td>NRR &amp; Churn năm đầu</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>3. Đèn kết quả (Lagging — Nhìn hằng quý)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 35%;">Đèn</th>
+          <th style="width: 15%;">Hiện</th>
+          <th style="width: 30%;">🟢 / 🟡 / 🔴</th>
+          <th style="width: 20%;">Nguồn</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Gross Margin</strong></td>
+          <td>58%</td>
+          <td>≥ 60% / 50–60% / &lt; 50%</td>
+          <td>[BM] 27/08/2026 (ICONIQ)</td>
+        </tr>
+        <tr>
+          <td><strong>Net Revenue Retention (NRR)</strong></td>
+          <td>—</td>
+          <td>≥ 110% / 100–110% / &lt; 100%</td>
+          <td>[BM] 27/08/2026 (Benchmarkit)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>4. 5 Luật quyết định (⏹ = Luật dừng bảo vệ hệ thống)</h2>
+    <ol class="rule-list">
+      <li><span class="tag-stop">⏹</span> <span class="kw">NẾU</span> TTFV &gt; 30 ngày <span class="kw">TRÊN</span> 3 đối tác phân khu liên tiếp <span class="kw">VÀ</span> mỗi phân khu đã nạp ≥ 50 căn vào CSDL <span class="kw">THÌ</span> đóng băng toàn bộ hoạt động ký thêm pilot mới, tập trung kỹ thuật chuẩn hóa kết nối CSDL và auto-matching trong 3 tuần <span class="kw">KHÔNG THÌ</span> <span class="highlight-red">không được tuyển thêm sales khi quy trình triển khai đang bị tắc nghẽn</span>.</li>
+      <li><span class="tag-stop">⏹</span> <span class="kw">NẾU</span> tỷ lệ deal kẹt ở khâu kiểm tra bảo mật CSDL &gt; 20% <span class="kw">TRONG</span> 1 quý <span class="kw">THÌ</span> tạm dừng demo bán hàng 2 tuần, hoàn thiện hồ sơ Evidence Pack và báo cáo kiểm toán bảo mật VPC theo chuẩn Chủ đầu tư <span class="kw">KHÔNG THÌ</span> <span class="highlight-red">không được giảm giá hợp đồng để thuyết phục khách hàng bỏ qua tiêu chí an toàn thông tin</span>.</li>
+      <li><span class="kw">NẾU</span> Chi phí Inference AI &gt; 15.000đ/Booking <span class="kw">TRONG</span> 2 tuần liên tiếp <span class="kw">THÌ</span> kích hoạt ngay Semantic Cache, chuyển tác vụ trích xuất tiêu chí sang mô hình nhỏ (SLM) và áp trần 10 lượt chat/phiên <span class="kw">KHÔNG THÌ</span> <span class="highlight-red">không được tự ý tăng giá ACV giữa chu kỳ hợp đồng làm mất uy tín đối tác</span>.</li>
+      <li><span class="kw">NẾU</span> Chi phí triển khai và tích hợp CSDL &gt; 25% ACV <span class="kw">TRÊN</span> 2 hợp đồng liên tiếp <span class="kw">THÌ</span> đóng gói schema thành cổng tự phục vụ (Self-serve Connector) và ban hành phụ phí Setup Fee cho yêu cầu tùy biến <span class="kw">KHÔNG THÌ</span> <span class="highlight-red">không tiếp tục chào bán gói phần mềm cam kết miễn phí tùy biến dữ liệu</span>.</li>
+      <li><span class="kw">NẾU</span> Usage Depth của môi giới &lt; 30% <span class="kw">SAU</span> 45 ngày go-live <span class="kw">THÌ</span> cử trực tiếp 1 Chuyên viên Customer Success xuống sàn đào tạo lại luồng và tích hợp nhắc lịch tự động qua Zalo ZNS <span class="kw">KHÔNG THÌ</span> <span class="highlight-red">không chào bán thêm phân hệ tính năng nâng cao khi người dùng chưa thành thạo tính năng lõi</span>.</li>
+    </ol>
+
+    <h2>5. Cổng gác 90 ngày (Go · Fix · Pivot · Kill)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 10%;">Ngày</th>
+          <th style="width: 28%;">Metric (Đúng 1 metric)</th>
+          <th style="width: 22%;">Ngưỡng qua cổng</th>
+          <th style="width: 25%;">Bằng chứng vật lý</th>
+          <th style="width: 15%;">Nếu trượt</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>30</strong></td>
+          <td>Tích hợp CSDL &amp; TTFV pilot đầu tiên</td>
+          <td>Tích hợp ≥ 100 căn &amp; TTFV ≤ 14 ngày</td>
+          <td>Biên bản nghiệm thu CSDL + Log ca xem nhà có mã Deal</td>
+          <td>FIX (sửa luồng kết nối 30 ngày) / PIVOT</td>
+        </tr>
+        <tr>
+          <td><strong>60</strong></td>
+          <td>Usage Depth môi giới trên 3 phân khu</td>
+          <td>≥ 60% user nội bộ thao tác/tuần</td>
+          <td>Báo cáo Product Analytics có chữ ký Giám đốc Sàn</td>
+          <td>FIX 1 lần (đào tạo lại) / PIVOT</td>
+        </tr>
+        <tr>
+          <td><strong>90</strong></td>
+          <td>Tỷ lệ chuyển đổi POC → Paid</td>
+          <td>≥ 50% (≥ 2/4 phân khu pilot ký hợp đồng)</td>
+          <td>Hợp đồng cung cấp dịch vụ có chữ ký số + Hóa đơn</td>
+          <td>PIVOT (đổi gói phí theo Deal) / KILL</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="footer-section">
+      <div><strong>KILL CRITERIA:</strong> Sau 90 ngày (trước 08/01/2027), nếu không có ít nhất 1 sàn/CĐT ký hợp đồng trả phí chính thức với ACV ≥ 150.000.000đ hoặc TTFV trung bình vẫn &gt; 45 ngày sau 1 lần FIX, dừng toàn bộ dự án để chuyển tài nguyên sang bài toán khác.</div>
+      <div style="margin-top: 2px;"><strong>CHƯA ĐO ĐƯỢC:</strong> Net Revenue Retention (NRR) và Tỷ lệ tái ký hợp đồng sau 12 tháng (Cần gì: Tối thiểu 1 chu kỳ vận hành 12 tháng trọn vẹn từ các hợp đồng đã ký; Khi nào có số: Dự kiến có số liệu thực tế vào Quý 4/2027).</div>
+    </div>
+  </div>
+
+  <!-- TRANG 2: PHỤ LỤC PHÉP TÍNH [MH] -->
+  <div class="page">
+    <h1>PHỤ LỤC PHÉP TÍNH [MH] — MÔ HÌNH TÀI CHÍNH &amp; COST/JOB</h1>
+    
+    <div class="meta-bar">
+      <div><strong>Sản phẩm:</strong> BookingBot AI Agent (B2B Vinhomes)</div>
+      <div><strong>Học viên:</strong> Hoàng Anh Tài – 2A202602612</div>
+      <div><strong>Trang:</strong> 2 / 2 (Phụ lục minh chứng Rubric Trạm 3)</div>
+    </div>
+
+    <div class="calc-card" style="margin-top: 8px;">
+      <h3>Phép tính [MH] 1 — Chi phí Inference AI trên mỗi yêu cầu khớp lịch (Cost/Job AI Matching)</h3>
+      <p style="margin: 0 0 4px 0; font-size: 8pt; color: #475569;">
+        <strong>Mục đích:</strong> Xác định trần chi phí suy luận AI (LLM tokens + Vector search) trên mỗi lượt hoàn tất yêu cầu đặt lịch xem nhà để bảo vệ biên lợi nhuận gộp Gross Margin ≥ 60%.
+      </p>
+      <pre>
+1. DỮ LIỆU ĐẦU VÀO (Mô hình doanh thu B2B & Gói dịch vụ chuẩn):
+   - Giá trị hợp đồng hàng năm (ACV) cho 1 sàn phân phối/phân khu: 240.000.000đ/năm
+   - Doanh thu phân bổ hàng tháng: 240.000.000đ ÷ 12 tháng = 20.000.000đ/tháng
+   - Hạn mức thiết kế cam kết xử lý trong gói cơ sở: 800 lượt Booking Request đạt chuẩn/tháng
+   - Doanh thu đơn vị danh nghĩa phân bổ trên mỗi booking job = 20.000.000đ ÷ 800 = 25.000đ/job
+
+2. BÓC TÁCH CHI PHÍ GIÁ VỐN (COGS) ĐỂ ĐẢM BẢO GROSS MARGIN ≥ 60%:
+   - Gross Margin mục tiêu: GM ≥ 60%
+     → Tổng giá vốn hàng bán trực tiếp (COGS) tối đa trên mỗi job:
+       COGS_max = 25.000đ × (1 − 0.60) = 10.000đ/job
+   - Chi phí hạ tầng server, vector DB và cloud phụ trợ phân bổ chiếm ~15% COGS:
+       Server_cost = 10.000đ × 15% = 1.500đ/job
+   - Trần chi phí Inference AI tối đa (LLM prompt + completion + embedding matching):
+       Inference_ceiling = COGS_max − Server_cost = 10.000đ − 1.500đ = 8.500đ/job
+
+3. ĐÁNH GIÁ KỊCH BẢN NGUY HIỂM (STRESS-TEST ĐÈN ĐỎ):
+   - Nếu chi phí Inference vượt 15.000đ/job:
+     Tổng COGS = 15.000đ + 1.500đ = 16.500đ/job
+     Gross Margin thực tế = (25.000đ − 16.500đ) ÷ 25.000đ = 34.0% (&lt; 35%)
+     → Rơi vào vùng nguy hiểm, ăn mòn dòng tiền của doanh nghiệp.
+
+4. KẾT LUẬN NGƯỠNG TÍN HIỆU ĐIỀU HÀNH:
+   🟢 Xanh (An toàn):       ≤ 8.500đ / booking job (Gross Margin ≥ 60%)
+   🟡 Vàng (Cảnh báo):      8.500đ – 15.000đ / booking job (GM dao động 34% – 60%)
+   🔴 Đỏ (Kích hoạt luật):  &gt; 15.000đ / booking job (GM &lt; 34% — Kích hoạt Luật 3)</pre>
+    </div>
+
+    <div class="calc-card">
+      <h3>Phép tính [MH] 2 — Tỷ lệ chi phí triển khai &amp; tích hợp CSDL giỏ hàng ÷ ACV</h3>
+      <p style="margin: 0 0 4px 0; font-size: 8pt; color: #475569;">
+        <strong>Mục đích:</strong> Đo lường tính có thể mở rộng (Scalability) của mô hình phần mềm sản phẩm B2B, ngăn ngừa rủi ro biến thành công ty gia công dịch vụ (IT Outsourcing).
+      </p>
+      <pre>
+1. DỮ LIỆU ĐẦU VÀO (Ngân sách triển khai năm đầu):
+   - ACV hợp đồng chuẩn: 240.000.000đ/năm
+   - Tổng trần COGS năm đầu để bảo vệ biên lãi gộp năm 1 ≥ 60%:
+       COGS_year1_max = 240.000.000đ × 40% = 96.000.000đ/khách hàng
+   - Chi phí API token và cloud server ước tính vận hành cả năm:
+       Cloud_API_year = 240.000.000đ × 15% = 36.000.000đ/năm
+   - Ngân sách tối đa còn lại dành cho công tác kỹ thuật Onboarding (tích hợp CSDL, mapping schema, phân quyền):
+       Onboarding_budget_max = 96.000.000đ − 36.000.000đ = 60.000.000đ
+       Tỷ lệ trên ACV = 60.000.000đ ÷ 240.000.000đ = 25.0% ACV
+
+2. QUY ĐỔI RA NĂNG LỰC NHÂN SỰ VÀ GIỜ CÔNG KỸ THUẬT:
+   - Đơn giá chi phí nội bộ cho 1 giờ công Kỹ sư Triển khai (Deployment Engineer): 250.000đ/giờ
+   - Ngưỡng tối ưu (&lt; 15% ACV):
+       Chi phí ≤ 36.000.000đ (tương đương ≤ 144 giờ công = 18 ngày công)
+       → Tích hợp chuẩn hóa qua cổng API/Connector sẵn có.
+   - Ngưỡng chấp nhận được (15% – 25% ACV):
+       Chi phí từ 36.000.000đ – 60.000.000đ (tương đương 144 – 240 giờ công)
+       → Cần tùy biến một số bảng dữ liệu của CĐT nhưng vẫn trong trần cho phép của năm 1.
+   - Ngưỡng nguy hiểm (&gt; 25% ACV):
+       Chi phí &gt; 60.000.000đ (&gt; 240 giờ công = hơn 1 tháng làm việc toàn thời gian của 1 dev)
+       → Mô hình mất tính mở rộng (không scale được), biến thành công ty làm dịch vụ theo yêu cầu.
+
+3. KẾT LUẬN NGƯỠNG TÍN HIỆU ĐIỀU HÀNH:
+   🟢 Xanh (Tự động hóa cao):  &lt; 15% ACV (Chi phí Onboarding ≤ 36.000.000đ)
+   🟡 Vàng (Cần theo dõi):     15% – 25% ACV (Chi phí Onboarding 36.000.000đ – 60.000.000đ)
+   🔴 Đỏ (Báo động cơ cấu):    &gt; 25% ACV (Kích hoạt Luật 4 — Yêu cầu Setup Fee hoặc chuẩn hóa)</pre>
+    </div>
+
+    <div style="font-size: 7.8pt; color: #64748b; text-align: center; margin-top: 15px;">
+      <em>Hồ sơ nghiệm thu học phần AI Product Growth · K4-L3 Day 23 · Đại học VinUni / AI Thực Chiến</em>
+    </div>
+  </div>
+
+</body>
+</html>
