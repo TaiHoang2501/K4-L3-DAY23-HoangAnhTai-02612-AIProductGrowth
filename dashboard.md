@@ -7,30 +7,30 @@
 
 ### Đèn báo sớm (Leading — nhìn hằng ngày/tuần)
 
-| Đèn | Hiện | 🟢 / 🟡 / 🔴 | Nguồn | Báo trước cho |
+| Đèn | Hiện | 🟢 / 🟡 / 🔴 | Nguồn & Lý do | Báo trước cho |
 |---|---|---|---|---|
-| **Time-to-first-value (TTFV)** ⭐ | Pilot | < 14 ngày / 14–30 ngày / > 30 ngày | [TB] | POC → paid (tầng O) & NRR (tầng G) |
-| **% Deal duyệt Security CSDL** | 75% | $\ge 80\%$ / 60–80% / < 60% | [BM] 27/08/2026 | Sales cycle (tầng O) & Win rate |
-| **Chi phí Inference AI / Booking (Cost/Job)** | 7.200đ | $\le 8.500$đ / 8.500–15.000đ / > 15.000đ | [MH] 1 | Gross Margin (tầng G) |
+| **Time-to-first-value (TTFV)** ⭐ | Pilot | < 14 ngày / 14–30 ngày / > 30 ngày | **[TB]** Quá 30 ngày đối tác mất kiên nhẫn bỏ rơi pilot | POC → paid (tầng O) & NRR (tầng G) |
+| **% Deal duyệt Security CSDL** | 75% | $\ge 80\%$ / 60–80% / < 60% | **[BM] 27/08/2026** Ngưỡng an toàn chống gãy deal ở khâu dữ liệu | Sales cycle (tầng O) & Win rate |
+| **Chi phí Inference AI / Booking (Cost/Job)** | 7.200đ | $\le 8.500$đ / 8.500–15.000đ / > 15.000đ | **[MH] 1** Bảo vệ Gross Margin $\ge 60\%$ và hạn mức ACV chuẩn | Gross Margin (tầng G) |
 
 ---
 
 ### Đèn vận hành (Operating — nhìn hằng tuần/tháng)
 
-| Đèn | Hiện | 🟢 / 🟡 / 🔴 | Nguồn | Báo trước cho |
+| Đèn | Hiện | 🟢 / 🟡 / 🔴 | Nguồn & Lý do | Báo trước cho |
 |---|---|---|---|---|
-| **POC → paid** | 50% | $\ge 50\%$ / 35–50% / < 35% | [BM] 27/08/2026 | Doanh thu định kỳ & NRR (tầng G) |
-| **Chi phí triển khai CSDL ÷ ACV** | 18% | < 15% / 15–25% / > 25% | [MH] 2 | Gross Margin & CAC payback (tầng G) |
-| **Usage Depth (Môi giới thao tác/tuần)** | 42% | $\ge 60\%$ / 30–60% / < 30% | [TB] | NRR & Churn năm đầu (tầng G) |
+| **POC → paid** | 50% | $\ge 50\%$ / 35–50% / < 35% | **[BM] 27/08/2026** Mốc chuyển đổi hòa vốn ngành AI B2B (ICONIQ) | Doanh thu định kỳ & NRR (tầng G) |
+| **Chi phí triển khai CSDL ÷ ACV** | 18% | < 15% / 15–25% / > 25% | **[MH] 2** Ngăn chi phí dev Onboarding biến cty thành bên gia công | Gross Margin & CAC payback (tầng G) |
+| **Usage Depth (Môi giới thao tác/tuần)** | 42% | $\ge 60\%$ / 30–60% / < 30% | **[TB]** Dưới 30% sau 60 ngày là tín hiệu churn sớm không thể gia hạn | NRR & Churn năm đầu (tầng G) |
 
 ---
 
 ### Đèn kết quả (Lagging — nhìn hằng quý)
 
-| Đèn | Hiện | 🟢 / 🟡 / 🔴 | Nguồn |
+| Đèn | Hiện | 🟢 / 🟡 / 🔴 | Nguồn & Lý do |
 |---|---|---|---|
-| **Gross Margin** | 58% | $\ge 60\%$ / 50–60% / < 50% | [BM] 27/08/2026 |
-| **Net Revenue Retention (NRR)** | — | $\ge 110\%$ / 100–110% / < 100% | [BM] 27/08/2026 |
+| **Gross Margin** | 58% | $\ge 60\%$ / 50–60% / < 50% | **[BM] 27/08/2026** Trung vị biên gộp công ty AI-native 2026 (ICONIQ) |
+| **Net Revenue Retention (NRR)** | — | $\ge 110\%$ / 100–110% / < 100% | **[BM] 27/08/2026** Đảm bảo mở rộng doanh thu không cần bán thêm khách (Benchmarkit) |
 
 ---
 
